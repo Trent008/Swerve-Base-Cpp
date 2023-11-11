@@ -41,7 +41,7 @@
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\39eca63256be6fdac375a1f4fa9e6728\\transformed\\cameraserver-cpp-2022.2.1-headers\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\49124d92ecd9bab3e8cdcf4fc241964c\\transformed\\cscore-cpp-2022.2.1-headers\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\1b19e581fef7bba4eb2b221828c8d947\\transformed\\opencv-cpp-4.5.2-1-headers\\",
-      "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Swerve Base Blind Acceleration-Imported\\src\\main\\include\\",
+      "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\include\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\40fd17090f032a6efd5a3216c37599e4\\transformed\\wpilibNewCommands-cpp-2022.2.1-sources\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\6e52fd6851168eaa179d7457ab88f794\\transformed\\navx-frc-cpp-2023.0.4-sources\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\c2fd56f2a36411b1a2bf601722a2fccf\\transformed\\wpilibc-cpp-2022.2.1-sources\\",
@@ -93,7 +93,7 @@
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\39eca63256be6fdac375a1f4fa9e6728\\transformed\\cameraserver-cpp-2022.2.1-headers\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\49124d92ecd9bab3e8cdcf4fc241964c\\transformed\\cscore-cpp-2022.2.1-headers\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\1b19e581fef7bba4eb2b221828c8d947\\transformed\\opencv-cpp-4.5.2-1-headers\\",
-      "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Swerve Base Blind Acceleration-Imported\\src\\main\\include\\"
+      "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\include\\"
     ],
     "binaries": [
       {
@@ -102,7 +102,7 @@
           {
             "source": {
               "srcDirs": [
-                "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Swerve Base Blind Acceleration-Imported\\src\\main\\cpp\\"
+                "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\cpp\\"
               ],
               "includes": [
                 "**/*.cpp",
@@ -112,7 +112,7 @@
             },
             "exportedHeaders": {
               "srcDirs": [
-                "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Swerve Base Blind Acceleration-Imported\\src\\main\\include\\"
+                "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\include\\"
               ],
               "includes": [],
               "excludes": []
@@ -164,7 +164,7 @@
           "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\39eca63256be6fdac375a1f4fa9e6728\\transformed\\cameraserver-cpp-2022.2.1-headers\\",
           "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\49124d92ecd9bab3e8cdcf4fc241964c\\transformed\\cscore-cpp-2022.2.1-headers\\",
           "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\1b19e581fef7bba4eb2b221828c8d947\\transformed\\opencv-cpp-4.5.2-1-headers\\",
-          "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Swerve Base Blind Acceleration-Imported\\src\\main\\include\\"
+          "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\include\\"
         ],
         "sharedLibrary": false,
         "executable": true
@@ -174,7 +174,7 @@
       {
         "source": {
           "srcDirs": [
-            "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Swerve Base Blind Acceleration-Imported\\src\\main\\cpp\\"
+            "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\cpp\\"
           ],
           "includes": [
             "**/*.cpp",
@@ -206,7 +206,7 @@
       {
         "source": {
           "srcDirs": [
-            "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Swerve Base Blind Acceleration-Imported\\src\\main\\include\\"
+            "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\include\\"
           ],
           "includes": [],
           "excludes": []
@@ -279,7 +279,7 @@
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\39eca63256be6fdac375a1f4fa9e6728\\transformed\\cameraserver-cpp-2022.2.1-headers\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\49124d92ecd9bab3e8cdcf4fc241964c\\transformed\\cscore-cpp-2022.2.1-headers\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\1b19e581fef7bba4eb2b221828c8d947\\transformed\\opencv-cpp-4.5.2-1-headers\\",
-      "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Swerve Base Blind Acceleration-Imported\\src\\main\\include\\",
+      "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\include\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\40fd17090f032a6efd5a3216c37599e4\\transformed\\wpilibNewCommands-cpp-2022.2.1-sources\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\6e52fd6851168eaa179d7457ab88f794\\transformed\\navx-frc-cpp-2023.0.4-sources\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\c2fd56f2a36411b1a2bf601722a2fccf\\transformed\\wpilibc-cpp-2022.2.1-sources\\",
@@ -331,7 +331,7 @@
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\39eca63256be6fdac375a1f4fa9e6728\\transformed\\cameraserver-cpp-2022.2.1-headers\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\49124d92ecd9bab3e8cdcf4fc241964c\\transformed\\cscore-cpp-2022.2.1-headers\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\1b19e581fef7bba4eb2b221828c8d947\\transformed\\opencv-cpp-4.5.2-1-headers\\",
-      "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Swerve Base Blind Acceleration-Imported\\src\\main\\include\\"
+      "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\include\\"
     ],
     "binaries": [
       {
@@ -340,7 +340,7 @@
           {
             "source": {
               "srcDirs": [
-                "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Swerve Base Blind Acceleration-Imported\\src\\main\\cpp\\"
+                "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\cpp\\"
               ],
               "includes": [
                 "**/*.cpp",
@@ -350,7 +350,7 @@
             },
             "exportedHeaders": {
               "srcDirs": [
-                "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Swerve Base Blind Acceleration-Imported\\src\\main\\include\\"
+                "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\include\\"
               ],
               "includes": [],
               "excludes": []
@@ -401,7 +401,7 @@
           "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\39eca63256be6fdac375a1f4fa9e6728\\transformed\\cameraserver-cpp-2022.2.1-headers\\",
           "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\49124d92ecd9bab3e8cdcf4fc241964c\\transformed\\cscore-cpp-2022.2.1-headers\\",
           "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\1b19e581fef7bba4eb2b221828c8d947\\transformed\\opencv-cpp-4.5.2-1-headers\\",
-          "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Swerve Base Blind Acceleration-Imported\\src\\main\\include\\"
+          "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\include\\"
         ],
         "sharedLibrary": false,
         "executable": true
@@ -411,7 +411,7 @@
       {
         "source": {
           "srcDirs": [
-            "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Swerve Base Blind Acceleration-Imported\\src\\main\\cpp\\"
+            "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\cpp\\"
           ],
           "includes": [
             "**/*.cpp",
@@ -442,7 +442,7 @@
       {
         "source": {
           "srcDirs": [
-            "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Swerve Base Blind Acceleration-Imported\\src\\main\\include\\"
+            "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\include\\"
           ],
           "includes": [],
           "excludes": []
