@@ -6,7 +6,6 @@ using namespace ctre::phoenix6;
 // object to control a Falcon500 brushless motor
 class Falcon500 {
 private:
-    ctre::phoenix::
     hardware::TalonFX *motor;
     controls::TorqueCurrentFOC accelerationController{0_A};
     controls::VelocityTorqueCurrentFOC velocityContoller{0_tps, 0_A, 1, false};

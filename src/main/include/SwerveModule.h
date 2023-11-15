@@ -11,7 +11,7 @@ private:
     Vector steeringVector; // module drive vector for steering the robot clockwise
     Falcon500 *driveMotor; // drive motor object
     rev::CANSparkMax *turningMotor; // wheel swiveling motor object
-    CANCoder *wheelAngleEncoder; // measures the absolute angle of the wheel
+    hardware::CANcoder *wheelAngleEncoder; // measures the absolute angle of the wheel
     float lastPosition = 0; // last position of the drive motor
     float currentPosition; // current position of the drive motor
     Vector positionChangeVector; // vector defining module's position change since last Set() call
@@ -25,7 +25,7 @@ public:
     {
         driveMotor = new Falcon500{driveMotorCANID};
         turningMotor = new rev::CANSparkMax{turningMotorCANID, rev::CANSparkMax::MotorType::kBrushless};
-        wheelAngleEncoder = new CANCoder{canCoderID};
+        wheelAngleEncoder = new hardware::CANcoder{canCoderID};
         // calculate the steering vector
         steeringVector = position;
         steeringVector.rotateCW(90);
@@ -56,7 +56,7 @@ public:
     void Set(Vector driveRate, float angularRate)
     {
         // find the current wheel angle
-        currentWheelAngle = wheelAngleEncoder->GetAbsolutePosition();
+        currentWheelAngle = wheelAngleEncoder->GetAbsolutePosition().GetValue().value();
         // find the module target velocity
         moduleTargetVelocity = getModuleVector(driveRate, angularRate);
         // find the wheel's error from it's target angle
