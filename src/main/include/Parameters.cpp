@@ -1,11 +1,11 @@
 #pragma once
-#include "utilities/Vector.h"
+#include "Vector.cpp"
 
 // parameters for robot movement and autonomous
 struct Parameters
 {  
     // max amperage for the drive motor PID controllers
-    float const driveMotorMaxAmperage = 40;
+    float const driveMotorMaxAmperage = 45;
 
     // diameter of the drive wheels
     float const wheelDiameter = 3.9;

@@ -1,6 +1,6 @@
 #pragma once
-#include "AHRS.h"
-#include "SwerveModule.h"
+// #include "AHRS.h"
+#include "SwerveModule.cpp"
 
 // runs a swerve chassis
 class SwerveDrive
@@ -16,7 +16,7 @@ private:
             SwerveModule{14, 34, 24, {17.75, -25}}};
 
     // NavX V2 object
-    AHRS navx{frc::SPI::Port::kMXP};
+    // AHRS navx{frc::SPI::Port::kMXP};
     
     // stores current field rate setpoint
     Vector currentFieldRate;
@@ -35,14 +35,14 @@ public:
         {
             modules[i].initialize();
         }
-        navx.ZeroYaw();
+        // navx.ZeroYaw();
     }
 
     // set the Swerve chassis field-centric drive rate
     void Set(Vector targetFieldRate, float targetAngularRate, bool useAcceleration = true)
     {
         // set the current field angle to the gyro angle + the starting angle
-        currentFieldAngle = angleSum(navx.GetYaw(), parameters.startingAngle);
+        currentFieldAngle = angleSum(0, parameters.startingAngle); // navx.GetYaw()
         // robot-orient the drive command
         targetFieldRate.rotateCW(-currentFieldAngle);
         // keep the module speeds <= 1
@@ -91,7 +91,7 @@ public:
         currentFieldPosition.add(fieldPositionChange);
     }
 
-    // drives the swerve drive toward a point
+    // drives the swerve drive toward a point and returns true when the point is reached
     bool driveToward(Vector targetPostition, float targetAngle, float positionTolerance = 2, float angleTolerance = 5)
     {
         Vector positionError = targetPostition.getSubtracted(currentFieldPosition);
