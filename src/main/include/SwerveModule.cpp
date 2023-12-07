@@ -41,9 +41,9 @@ public:
     }
 
     // calculate the swerve module vector
-    complex<float> getModuleVector(complex<float> driveRate, float angularRate)
+    complex<float> getModuleVector(complex<float> driveRate, float turnRate)
     {
-        return driveRate + steeringVector * angularRate;
+        return driveRate + steeringVector * turnRate;
     }
 
     /**
@@ -56,7 +56,7 @@ public:
     void Set(complex<float> driveRate, float angularRate)
     {
         // find the current wheel angle
-        float currentWheelAngle = M_PI*wheelAngleEncoder->GetAbsolutePosition().GetValue().value()/180;
+        float currentWheelAngle = M_PI/180 * wheelAngleEncoder->GetAbsolutePosition().GetValue().value();
         // find the module target velocity
         complex<float> moduleTargetVelocity = getModuleVector(driveRate, angularRate);
         // find the wheel's error from it's target angle
@@ -74,7 +74,7 @@ public:
         turningMotor->Set(error / M_PI);
         // find the delta position change since last Set() call
         float currentPosition = driveMotor->getPosition();
-        positionChangeVector = complex<float>(0, (currentPosition - lastPosition) * parameters.driveMotorInPerRot) * polar<float>(1, -currentWheelAngle);
+        positionChangeVector = polar<float>((currentPosition - lastPosition) * parameters.driveMotorInPerRot, M_PI/2-currentWheelAngle);
         lastPosition = currentPosition;
     }
 
