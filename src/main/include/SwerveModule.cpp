@@ -27,7 +27,8 @@ public:
         wheelAngleEncoder = new hardware::CANcoder{canCoderID};
         // calculate the steering vector
         steeringVector = position;
-        steeringVector *= polar<float>(1, -M_PI/2);
+         // rotate by -pi/2 radians
+        steeringVector *= complex<float>(0, -1);
         steeringVector /= abs(steeringVector);
     }
 
