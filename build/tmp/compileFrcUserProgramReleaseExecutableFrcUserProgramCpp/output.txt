@@ -1,4 +1,24 @@
 See file:///C:/Users/trent/OneDrive/Documents/GitHub/Robot%20Code/Cpp/Swerve-Base-Cpp/build/tmp/compileFrcUserProgramReleaseExecutableFrcUserProgramCpp/output.txt for all output for compileFrcUserProgramReleaseExecutableFrcUserProgramCpp.
 compiling Robot.cpp successful.
+In file included from C:\Users\trent\OneDrive\Documents\GitHub\Robot Code\Cpp\Swerve-Base-Cpp\src\main\include/Falcon500.cpp:2,
+                 from C:\Users\trent\OneDrive\Documents\GitHub\Robot Code\Cpp\Swerve-Base-Cpp\src\main\include/SwerveModule.cpp:4,
+                 from C:\Users\trent\OneDrive\Documents\GitHub\Robot Code\Cpp\Swerve-Base-Cpp\src\main\include/SwerveDrive.cpp:3,
+                 from C:\Users\trent\OneDrive\Documents\GitHub\Robot Code\Cpp\Swerve-Base-Cpp\src\main\include/Robot.h:10,
+                 from C:\Users\trent\OneDrive\Documents\GitHub\Robot Code\Cpp\Swerve-Base-Cpp\src\main\cpp\Robot.cpp:5:
+C:\Users\trent\OneDrive\Documents\GitHub\Robot Code\Cpp\Swerve-Base-Cpp\src\main\include/Parameters.cpp:32:45: warning: left operand of comma operator has no effect [-Wunused-value]
+   32 |     std::complex<float> startingPosition = (0, 0);
+      |                                             ^
+C:\Users\trent\OneDrive\Documents\GitHub\Robot Code\Cpp\Swerve-Base-Cpp\src\main\include/SwerveDrive.cpp:13:39: warning: left operand of comma operator has no effect [-Wunused-value]
+   13 |             SwerveModule{11, 31, 21, (-17.75, 25)},
+      |                                       ^~~~~~
+C:\Users\trent\OneDrive\Documents\GitHub\Robot Code\Cpp\Swerve-Base-Cpp\src\main\include/SwerveDrive.cpp:14:39: warning: left operand of comma operator has no effect [-Wunused-value]
+   14 |             SwerveModule{12, 32, 22, (-17.75, -25)},
+      |                                       ^~~~~~
+C:\Users\trent\OneDrive\Documents\GitHub\Robot Code\Cpp\Swerve-Base-Cpp\src\main\include/SwerveDrive.cpp:15:39: warning: left operand of comma operator has no effect [-Wunused-value]
+   15 |             SwerveModule{13, 33, 23, (17.75, 25)},
+      |                                       ^~~~~
+C:\Users\trent\OneDrive\Documents\GitHub\Robot Code\Cpp\Swerve-Base-Cpp\src\main\include/SwerveDrive.cpp:16:39: warning: left operand of comma operator has no effect [-Wunused-value]
+   16 |             SwerveModule{14, 34, 24, (17.75, -25)}};
+      |                                       ^~~~~
 
 Finished compileFrcUserProgramReleaseExecutableFrcUserProgramCpp, see full log file:///C:/Users/trent/OneDrive/Documents/GitHub/Robot%20Code/Cpp/Swerve-Base-Cpp/build/tmp/compileFrcUserProgramReleaseExecutableFrcUserProgramCpp/output.txt.

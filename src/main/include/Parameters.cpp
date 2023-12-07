@@ -1,5 +1,5 @@
 #pragma once
-#include "Vector.cpp"
+#include "complex"
 
 // parameters for robot movement and autonomous
 struct Parameters
@@ -11,7 +11,7 @@ struct Parameters
     float const wheelDiameter = 3.9;
 
     // inches of travel per rotation of the motor
-    float const driveMotorInchesPerRotation = (M_PI * wheelDiameter / 6.75);
+    float const driveMotorInPerRot = (M_PI * wheelDiameter / 6.75);
 
     // percent to change the robot velocity per teleop cycle
     float const maxPercentChangePerCycle = 0.035;
@@ -29,8 +29,8 @@ struct Parameters
     float const autoAngleP = 0.005;
 
     // robot starting position on the field
-    Vector startingPosition = {0, 0};
-    // robot starting angle on the field
+    std::complex<float> startingPosition = (0, 0);
+    // robot starting angle on the field (radians)
     float startingAngle = 0;
     
 } parameters;

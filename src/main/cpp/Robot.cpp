@@ -14,7 +14,7 @@ void Robot::AutonomousInit() {}
 void Robot::AutonomousPeriodic()
 {
   // drive the robot in a 24 inch radius circle
-  if (swerve.driveToward(Vector{24, 0}.getRotatedCW(i), 0))
+  if (swerve.driveToward(polar<float>(i*M_PI/180, 24), 0))
   {
     i++;
   }
@@ -23,7 +23,7 @@ void Robot::AutonomousPeriodic()
 void Robot::TeleopInit() {}
 void Robot::TeleopPeriodic()
 {
-  swerve.Set(Vector{float(xBoxC.GetRawAxis(0)), -float(xBoxC.GetRawAxis(1))}, float(xBoxC.GetRawAxis(4)));
+  swerve.Set(complex<float>(float(xBoxC.GetRawAxis(0)), -float(xBoxC.GetRawAxis(1))), float(xBoxC.GetRawAxis(4)));
 }
 
 void Robot::DisabledInit() {}

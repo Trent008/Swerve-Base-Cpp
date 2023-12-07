@@ -1,8 +1,8 @@
 #pragma once
-#include "Vector.cpp"
+#include "complex"
 
 struct AutonomousSetpoint
 {
-    Vector position;
+    complex<float> position;
     float angle = 0;
 };

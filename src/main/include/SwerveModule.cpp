@@ -4,28 +4,31 @@
 #include "Falcon500.cpp"
 #include "angleOptimization.cpp"
 #include "Parameters.cpp"
+#include "complex"
+
+using namespace std;
 
 // controls the motion of each swerve module
 class SwerveModule
 {
 private:
-    Vector steeringVector; // module drive vector for steering the robot clockwise
+    complex<float> steeringVector; // module drive vector for steering the robot clockwise
     Falcon500 *driveMotor; // drive motor object
     rev::CANSparkMax *turningMotor; // wheel swiveling motor object
     hardware::CANcoder *wheelAngleEncoder; // measures the absolute angle of the wheel
     float lastPosition = 0; // last position of the drive motor
-    Vector positionChangeVector; // vector defining module's position change since last Set() call
+    complex<float> positionChangeVector; // vector defining module's position change since last Set() call
 
 public:
-    SwerveModule(int driveMotorCANID, int turningMotorCANID, int canCoderID, Vector position)
+    SwerveModule(int driveMotorCANID, int turningMotorCANID, int canCoderID, complex<float> position)
     {
         driveMotor = new Falcon500{driveMotorCANID};
         turningMotor = new rev::CANSparkMax{turningMotorCANID, rev::CANSparkMax::MotorType::kBrushless};
         wheelAngleEncoder = new hardware::CANcoder{canCoderID};
         // calculate the steering vector
         steeringVector = position;
-        steeringVector.rotateCW(90);
-        steeringVector.divide(t2D::abs(steeringVector));
+        steeringVector *= polar<float>(1, -M_PI/2);
+        steeringVector /= abs(steeringVector);
     }
 
     // initialize the drive motor and invert the turning motor
@@ -37,9 +40,9 @@ public:
     }
 
     // calculate the swerve module vector
-    Vector getModuleVector(Vector driveRate, float angularRate)
+    complex<float> getModuleVector(complex<float> driveRate, float angularRate)
     {
-        return driveRate.getAdded(steeringVector.getScaled(angularRate));
+        return driveRate + steeringVector * angularRate;
     }
 
     /**
@@ -49,33 +52,33 @@ public:
      * driveRate - robot-centric drive rate
      * angularRate - rate to spin the robot
     */ 
-    void Set(Vector driveRate, float angularRate)
+    void Set(complex<float> driveRate, float angularRate)
     {
         // find the current wheel angle
-        float currentWheelAngle = wheelAngleEncoder->GetAbsolutePosition().GetValue().value();
+        float currentWheelAngle = M_PI*wheelAngleEncoder->GetAbsolutePosition().GetValue().value()/180;
         // find the module target velocity
-        Vector moduleTargetVelocity = getModuleVector(driveRate, angularRate);
+        complex<float> moduleTargetVelocity = getModuleVector(driveRate, angularRate);
         // find the wheel's error from it's target angle
-        float error = angleDifference(moduleTargetVelocity.getAngle(), currentWheelAngle);
+        float error = angleDifference(-arg(moduleTargetVelocity), currentWheelAngle);
         // find the drive motor velocity
-        float driveMotorVelocity = t2D::abs(moduleTargetVelocity);
+        float driveMotorVelocity = abs(moduleTargetVelocity);
         // reverse the wheel direction if it is more efficient
-        if (std::abs(error) > 90)
+        if (abs(error) > 90)
         {
             driveMotorVelocity = -driveMotorVelocity;
-            error = angleSum(error, 180);
+            error = angleSum(error, M_PI);
         }
         driveMotor->SetVelocity(driveMotorVelocity);
         // set the turning motor to a speed proportional to its error
-        turningMotor->Set(error / 180);
+        turningMotor->Set(error / M_PI);
         // find the delta position change since last Set() call
         float currentPosition = driveMotor->getPosition();
-        positionChangeVector = Vector{0, (currentPosition - lastPosition) * parameters.driveMotorInchesPerRotation}.getRotatedCW(currentWheelAngle);
+        positionChangeVector = complex<float>(0, (currentPosition - lastPosition) * parameters.driveMotorInPerRot) * polar<float>(1, -currentWheelAngle);
         lastPosition = currentPosition;
     }
 
     // gets this module's position change, useful for calculating robot position
-    Vector getPositionChangeVector()
+    complex<float> getPositionChangeVector()
     {
         return positionChangeVector;
     }
