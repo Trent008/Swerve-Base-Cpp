@@ -15,17 +15,19 @@ private:
             SwerveModule{13, 33, 23, {17.75, 25}},
             SwerveModule{14, 34, 24, {17.75, -25}}};
 
-    // NavX V2 object
+    // NavX V2 gyro object
     AHRS navx{frc::SPI::Port::kMXP};
     
-    // stores current field rate setpoint
-    complex<float> currentFieldRate;
-    // stores current angular rate setpoint
-    float currentAngularRate = 0;
+    // drive and turn rates with drive rates stored as complex numbers
+    complex<float> currentDriveRate;
+    complex<float> targetDriveRate;
+    float currentTurnRate = 0;
+    float targetTurnRate;
+
     // current position on the field relative to the starting position
-    complex<float> currentFieldPosition = parameters.startingPosition;
-    // current angle on the field
-    float currentFieldAngle;
+    complex<float> currentPosition = parameters.startingPosition;
+    // current angle
+    float currentAngle;
 
 public:
     // initialize the swerve modules and zero the NavX yaw
@@ -39,90 +41,99 @@ public:
     }
 
     // set the Swerve chassis field-centric drive rate
-    void Set(complex<float> targetFieldRate, float targetAngularRate, bool useAcceleration = true)
+    void Set(complex<float> driveRate, float turnRate, bool useAcceleration = true)
     {
         // set the current field angle to the gyro angle + the starting angle
-        currentFieldAngle = angleSum(navx.GetYaw()*M_PI/180, parameters.startingAngle);
-        // robot-orient the drive command
-        targetFieldRate *= polar<float>(1, currentFieldAngle);
-        // keep the module speeds <= 1
-        normalizeSwerveRate(targetFieldRate, targetAngularRate);
-        // field-orient the drive rate command again
-        targetFieldRate *= polar<float>(1, -currentFieldAngle);
+        currentAngle = angleSum(navx.GetYaw()*M_PI/180, parameters.startingAngle);
+
+        // set the target rates to the input
+        targetDriveRate = driveRate;
+        targetTurnRate = turnRate;
+
+        // modify the target rates to make them physically achievable
+        normalizeSwerveRate(driveRate, turnRate);
 
         if (useAcceleration)
         {
-            // find the robot field drive rate error
-            complex<float> positionalAccelIncrement = (targetFieldRate - currentFieldRate) * float(0.5);
-            float angularAccelIncrement = (targetAngularRate - currentAngularRate) * float(0.5);
-            // limit increments to max acceleration rate
-            if (abs(positionalAccelIncrement) > parameters.maxPercentChangePerCycle)
+            // find proportional response
+            complex<float> driveRateResponse = (targetDriveRate - currentDriveRate) * float(0.5);
+            float turnRateResponse = (targetTurnRate - currentTurnRate) * float(0.5);
+            // limit response to slew rate
+            if (abs(driveRateResponse) > parameters.slewRate)
             {
-                positionalAccelIncrement *= parameters.maxPercentChangePerCycle / abs(positionalAccelIncrement);
+                driveRateResponse *= parameters.slewRate / abs(driveRateResponse);
             }
-            if (abs(angularAccelIncrement) > parameters.maxPercentChangePerCycle)
+            if (abs(turnRateResponse) > parameters.slewRate)
             {
-                angularAccelIncrement *= parameters.maxPercentChangePerCycle / abs(angularAccelIncrement);
+                turnRateResponse *= parameters.slewRate / abs(turnRateResponse);
             }
 
-            // increment from the current field rate
-            currentFieldRate += positionalAccelIncrement;
-            currentAngularRate += angularAccelIncrement;
+            // increment current rates toward target rates
+            currentDriveRate += driveRateResponse;
+            currentTurnRate += turnRateResponse;
         }
         else
         {
             // set the drive rates directly from the input
-            currentFieldRate = targetFieldRate;
-            currentAngularRate = targetAngularRate;
+            currentDriveRate = targetDriveRate;
+            currentTurnRate = targetTurnRate;
         }
+
+        // robot-orient the drive rate
+        currentDriveRate *= polar<float>(1, currentAngle);
         // stores the robot's change in position since last Set()
-        complex<float> fieldPositionChange;
+        complex<float> positionChange;
         // drive the modules and average the module position changes
         for (int i = 0; i < 4; i++)
         {
-            modules[i].Set(currentFieldRate * polar<float>(1, currentFieldAngle), currentAngularRate);
-            fieldPositionChange += modules[i].getPositionChangeVector();
+            modules[i].Set(currentDriveRate, currentTurnRate);
+            positionChange += modules[i].getPositionChangeVector();
         }
-        // orient the position change vector in the direction of robot motion
-        fieldPositionChange *= polar<float>(1, -currentFieldAngle);
+        // field-orient the position change vector
+        positionChange *= polar<float>(1, -currentAngle);
         // average the position change of all four swerve modules
-        fieldPositionChange /= 4;
+        positionChange /= 4;
         // add the change in position over this cycle to the running total
-        currentFieldPosition += fieldPositionChange;
+        currentPosition += positionChange;
     }
 
     // drives the swerve drive toward a point and returns true when the point is reached
     bool driveToward(complex<float> targetPostition, float targetAngle, float positionTolerance = 2, float angleTolerance = 5)
     {
-        complex<float> positionError = targetPostition - currentFieldPosition;
-        float angleError = angleDifference(currentFieldAngle, targetAngle);
+        complex<float> positionError = targetPostition - currentPosition;
+        float angleError = angleDifference(currentAngle, targetAngle);
         complex<float> positionPIDOutput = positionError * parameters.autoPositionP;
         float anglePIDOutput = angleError * parameters.autoAngleP;
         if (abs(positionPIDOutput) > parameters.autoMaxDriveRate)
         {
             positionPIDOutput *= parameters.autoMaxDriveRate / abs(positionPIDOutput);
         }
-        if (abs(anglePIDOutput) > parameters.autoMaxRotationRate)
+        if (abs(anglePIDOutput) > parameters.autoMaxTurnRate)
         {
-            anglePIDOutput *= parameters.autoMaxRotationRate / abs(anglePIDOutput);
+            anglePIDOutput *= parameters.autoMaxTurnRate / abs(anglePIDOutput);
         }
         Set(positionPIDOutput, anglePIDOutput, false);
         return (abs(positionError) < positionTolerance) && (abs(angleError) < angleTolerance);
     }
 
     // limit the driving inputs to physically achievable values
-    void normalizeSwerveRate(complex<float> &driveRate, float &currentAngularRate)
+    void normalizeSwerveRate(complex<float> driveRate, float turnRate)
     {
+        // robot-orient the drive rate
+        driveRate *= polar<float>(1, currentAngle);
+
+        // compare all of the module velocities to find the largest
         float fastestModule = 1;
-        for (int i = 0; i < 4; i++) // compare all of the module velocities to find the largest
+        for (int i = 0; i < 4; i++) 
         {
-            float moduleSpeed = abs(modules[i].getModuleVector(driveRate, currentAngularRate));
+            float moduleSpeed = abs(modules[i].getModuleVector(driveRate, currentTurnRate));
             if (moduleSpeed > fastestModule)
             {
                 fastestModule = moduleSpeed;
             }
         }
-        driveRate /= fastestModule;
-        currentAngularRate /= fastestModule;
+        // scale down the targets so that the fastest module speed is 1
+        targetDriveRate /= fastestModule;
+        targetTurnRate /= fastestModule;
     }
 } swerve;
