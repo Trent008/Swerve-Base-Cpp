@@ -1,4 +1,5 @@
 #pragma once
+#include "math.h"
 
 // return the sum of angle1 and angle2 limited to -M_PI to M_PI radians
 float angleSum(float const &angle1, float const &angle2) {

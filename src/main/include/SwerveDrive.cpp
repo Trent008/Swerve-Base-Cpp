@@ -10,10 +10,10 @@ private:
     // array of four swerve module objects with their positions relative to the center specified
     SwerveModule modules[4] =
         {
-            SwerveModule{11, 31, 21, (-17.75, 25)},
-            SwerveModule{12, 32, 22, (-17.75, -25)},
-            SwerveModule{13, 33, 23, (17.75, 25)},
-            SwerveModule{14, 34, 24, (17.75, -25)}};
+            SwerveModule{11, 31, 21, {-17.75, 25}},
+            SwerveModule{12, 32, 22, {-17.75, -25}},
+            SwerveModule{13, 33, 23, {17.75, 25}},
+            SwerveModule{14, 34, 24, {17.75, -25}}};
 
     // NavX V2 object
     AHRS navx{frc::SPI::Port::kMXP};

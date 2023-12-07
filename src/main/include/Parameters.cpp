@@ -29,7 +29,7 @@ struct Parameters
     float const autoAngleP = 0.005;
 
     // robot starting position on the field
-    std::complex<float> startingPosition = (0, 0);
+    std::complex<float> startingPosition = {0, 0};
     // robot starting angle on the field (radians)
     float startingAngle = 0;
     
