@@ -7,8 +7,8 @@
 #include <frc/TimedRobot.h>
 #include "frc/Joystick.h"
 #include "fmt/core.h"
-#include "SwerveDrive.cpp"
-#include "AutonomousSetpoint.cpp"
+#include "SwerveDrive.h"
+#include "AutonomousSetpoint.h"
 
 class Robot : public frc::TimedRobot {
  public:

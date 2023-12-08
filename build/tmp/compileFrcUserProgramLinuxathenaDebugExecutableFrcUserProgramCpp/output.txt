@@ -1,0 +1,4 @@
+See file:///C:/Users/trent/OneDrive/Documents/GitHub/Robot%20Code/Cpp/Swerve-Base-Cpp/build/tmp/compileFrcUserProgramLinuxathenaDebugExecutableFrcUserProgramCpp/output.txt for all output for compileFrcUserProgramLinuxathenaDebugExecutableFrcUserProgramCpp.
+compiling Robot.cpp successful.
+
+Finished compileFrcUserProgramLinuxathenaDebugExecutableFrcUserProgramCpp, see full log file:///C:/Users/trent/OneDrive/Documents/GitHub/Robot%20Code/Cpp/Swerve-Base-Cpp/build/tmp/compileFrcUserProgramLinuxathenaDebugExecutableFrcUserProgramCpp/output.txt.

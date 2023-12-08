@@ -1,0 +1,6 @@
+See file:///C:/Users/trent/OneDrive/Documents/GitHub/Robot%20Code/Cpp/Swerve-Base-Cpp/build/tmp/compileFrcUserProgramWindowsx86-64DebugExecutableFrcUserProgramCpp/output.txt for all output for compileFrcUserProgramWindowsx86-64DebugExecutableFrcUserProgramCpp.
+compiling Robot.cpp failed.
+g++.exe: fatal error: cannot specify '-o' with '-c', '-S' or '-E' with multiple files
+compilation terminated.
+
+Finished compileFrcUserProgramWindowsx86-64DebugExecutableFrcUserProgramCpp, see full log file:///C:/Users/trent/OneDrive/Documents/GitHub/Robot%20Code/Cpp/Swerve-Base-Cpp/build/tmp/compileFrcUserProgramWindowsx86-64DebugExecutableFrcUserProgramCpp/output.txt.
