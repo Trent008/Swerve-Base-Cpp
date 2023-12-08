@@ -27,8 +27,8 @@ public:
         wheelAngleEncoder = new hardware::CANcoder{canCoderID};
         // calculate the steering vector
         steeringVector = position;
-         // rotate by -pi/2 radians
-        steeringVector *= complex<float>(0, -1);
+         // rotate by pi/2 radians
+        steeringVector *= complex<float>(0, 1);
         steeringVector /= abs(steeringVector);
     }
 
@@ -56,11 +56,11 @@ public:
     void Set(complex<float> driveRate, float angularRate)
     {
         // find the current wheel angle
-        float currentWheelAngle = M_PI/180 * wheelAngleEncoder->GetAbsolutePosition().GetValue().value();
+        float currentWheelAngle = wheelAngleEncoder->GetAbsolutePosition().GetValue().value();
         // find the module target velocity
         complex<float> moduleTargetVelocity = getModuleVector(driveRate, angularRate);
         // find the wheel's error from it's target angle
-        float error = angleDifference(angleDifference(arg(moduleTargetVelocity), M_PI/2), currentWheelAngle);
+        float error = angleDifference(arg(moduleTargetVelocity), currentWheelAngle);
         // find the drive motor velocity
         float driveMotorVelocity = abs(moduleTargetVelocity);
         // reverse the wheel direction if it is more efficient
@@ -74,7 +74,7 @@ public:
         turningMotor->Set(error / M_PI);
         // find the delta position change since last Set() call
         float currentPosition = driveMotor->getPosition();
-        positionChangeVector = polar<float>((currentPosition - lastPosition) * parameters.driveMotorInPerRot, M_PI/2-currentWheelAngle);
+        positionChangeVector = polar<float>((currentPosition - lastPosition) * parameters.driveMotorInPerRot, currentWheelAngle);
         lastPosition = currentPosition;
     }
 
