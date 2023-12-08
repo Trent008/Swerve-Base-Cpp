@@ -12,10 +12,10 @@ using namespace std;
 class SwerveModule
 {
 private:
-    complex<float> steeringVector; // module drive vector for steering the robot clockwise
-    Falcon500 *driveMotor; // drive motor object
-    rev::CANSparkMax *turningMotor; // wheel swiveling motor object
-    hardware::CANcoder *wheelAngleEncoder; // measures the absolute angle of the wheel
+    complex<float> steeringVector; // module drive vector for steering the robot counter clockwise
+    Falcon500 *driveMotor; // spins the wheel
+    rev::CANSparkMax *turningMotor; // changes wheel angle
+    hardware::CANcoder *wheelAngleEncoder; // measures wheel angle
     float lastPosition = 0; // last position of the drive motor
     complex<float> positionChangeVector; // vector defining module's position change since last Set() call
 
@@ -59,19 +59,30 @@ public:
         float currentWheelAngle = wheelAngleEncoder->GetAbsolutePosition().GetValue().value();
         // find the module target velocity
         complex<float> moduleTargetVelocity = getModuleVector(driveRate, angularRate);
-        // find the wheel's error from it's target angle
-        float error = angleDifference(arg(moduleTargetVelocity), currentWheelAngle);
-        // find the drive motor velocity
-        float driveMotorVelocity = abs(moduleTargetVelocity);
-        // reverse the wheel direction if it is more efficient
-        if (abs(error) > 90)
+
+        // if the target velocity is significant
+        if (abs(moduleTargetVelocity) > 0.001)
         {
-            driveMotorVelocity = -driveMotorVelocity;
-            error = angleSum(error, M_PI);
+            // find the wheel's error from it's target angle
+            float error = angleDifference(arg(moduleTargetVelocity), currentWheelAngle);
+            // find the drive motor velocity
+            float driveMotorVelocity = abs(moduleTargetVelocity);
+            // reverse the wheel direction if it is more efficient
+            if (abs(error) > 90)
+            {
+                driveMotorVelocity = -driveMotorVelocity;
+                error = angleSum(error, M_PI);
+            }
+            driveMotor->SetVelocity(driveMotorVelocity);
+            // set the turning motor to a speed proportional to its error
+            turningMotor->Set(error / M_PI);
         }
-        driveMotor->SetVelocity(driveMotorVelocity);
-        // set the turning motor to a speed proportional to its error
-        turningMotor->Set(error / M_PI);
+        else // if the target velocity is basically zero, do nothing
+        {
+            driveMotor->SetVelocity(0);
+            turningMotor->Set(0);
+        }
+        
         // find the delta position change since last Set() call
         float currentPosition = driveMotor->getPosition();
         positionChangeVector = polar<float>((currentPosition - lastPosition) * parameters.driveMotorInPerRot, currentWheelAngle);

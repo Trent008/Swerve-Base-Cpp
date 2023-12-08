@@ -42,10 +42,10 @@ public:
         navx.ZeroYaw();
     }
 
-    // set the Swerve chassis field-centric drive rate
+    // set field centric drive rate
     void Set(complex<float> driveRate, float turnRate, bool useAcceleration = true)
     {
-        // set the current field angle to the gyro angle + the starting angle
+        // set the current angle to the gyro angle + the starting angle
         currentAngle = angleSum(-navx.GetYaw()*M_PI/180, parameters.startingAngle);
 
         // set the target rates to the input
@@ -57,22 +57,22 @@ public:
 
         if (useAcceleration)
         {
-            // find proportional response
-            complex<float> driveRateResponse = (targetDriveRate - currentDriveRate) * float(0.5);
-            float turnRateResponse = (targetTurnRate - currentTurnRate) * float(0.5);
-            // limit response to slew rate
-            if (abs(driveRateResponse) > parameters.slewRate)
+            // find rate errors
+            complex<float> driveRateError = targetDriveRate - currentDriveRate;
+            float turnRateError = targetTurnRate - currentTurnRate;
+            // limit increment to slew rate
+            if (abs(driveRateError) > parameters.slewRate)
             {
-                driveRateResponse *= parameters.slewRate / abs(driveRateResponse);
+                driveRateError *= parameters.slewRate / abs(driveRateError);
             }
-            if (abs(turnRateResponse) > parameters.slewRate)
+            if (abs(turnRateError) > parameters.slewRate)
             {
-                turnRateResponse *= parameters.slewRate / abs(turnRateResponse);
+                turnRateError *= parameters.slewRate / abs(turnRateError);
             }
 
             // increment current rates toward target rates
-            currentDriveRate += driveRateResponse;
-            currentTurnRate += turnRateResponse;
+            currentDriveRate += driveRateError;
+            currentTurnRate += turnRateError;
         }
         else
         {
@@ -99,7 +99,7 @@ public:
         currentPosition += positionChange;
     }
 
-    // drives the swerve drive toward a point and returns true when the point is reached
+    // drive toward a point and angle (radians) and return true when the point is reached
     bool driveToward(complex<float> targetPostition, float targetAngle, float positionTolerance = 2, float angleTolerance = 5)
     {
         complex<float> positionError = targetPostition - currentPosition;
