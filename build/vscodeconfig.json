@@ -33,7 +33,7 @@
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\d3b3db4768ab7e084aaf48eaf459a071\\transformed\\cscore-cpp-2023.4.3-headers\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\b7d147c4eaae16901bb4cf8c6a5a001c\\transformed\\apriltag-cpp-2023.4.3-headers\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\8ad7f433c3220a938f5e739b547fd881\\transformed\\opencv-cpp-4.6.0-4-headers\\",
-      "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\include\\",
+      "C:\\Users\\trent\\Desktop\\Code\\Robot\\Swerve-Base-Cpp\\src\\main\\include\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\30260e5da45014b29d8aecb925cbafff\\transformed\\wpilibNewCommands-cpp-2023.4.3-sources\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\f2638702db1a1cc4c1da64c7dd788db5\\transformed\\navx-frc-cpp-2023.0.4-sources\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\2a414afe795278e4dc9d0b6d234fb908\\transformed\\wpilibc-cpp-2023.4.3-sources\\",
@@ -81,7 +81,7 @@
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\d3b3db4768ab7e084aaf48eaf459a071\\transformed\\cscore-cpp-2023.4.3-headers\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\b7d147c4eaae16901bb4cf8c6a5a001c\\transformed\\apriltag-cpp-2023.4.3-headers\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\8ad7f433c3220a938f5e739b547fd881\\transformed\\opencv-cpp-4.6.0-4-headers\\",
-      "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\include\\"
+      "C:\\Users\\trent\\Desktop\\Code\\Robot\\Swerve-Base-Cpp\\src\\main\\include\\"
     ],
     "binaries": [
       {
@@ -90,7 +90,7 @@
           {
             "source": {
               "srcDirs": [
-                "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\cpp\\"
+                "C:\\Users\\trent\\Desktop\\Code\\Robot\\Swerve-Base-Cpp\\src\\main\\cpp\\"
               ],
               "includes": [
                 "**/*.cpp",
@@ -100,7 +100,7 @@
             },
             "exportedHeaders": {
               "srcDirs": [
-                "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\include\\"
+                "C:\\Users\\trent\\Desktop\\Code\\Robot\\Swerve-Base-Cpp\\src\\main\\include\\"
               ],
               "includes": [],
               "excludes": []
@@ -144,7 +144,7 @@
           "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\d3b3db4768ab7e084aaf48eaf459a071\\transformed\\cscore-cpp-2023.4.3-headers\\",
           "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\b7d147c4eaae16901bb4cf8c6a5a001c\\transformed\\apriltag-cpp-2023.4.3-headers\\",
           "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\8ad7f433c3220a938f5e739b547fd881\\transformed\\opencv-cpp-4.6.0-4-headers\\",
-          "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\include\\"
+          "C:\\Users\\trent\\Desktop\\Code\\Robot\\Swerve-Base-Cpp\\src\\main\\include\\"
         ],
         "sharedLibrary": false,
         "executable": true
@@ -154,7 +154,7 @@
       {
         "source": {
           "srcDirs": [
-            "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\cpp\\"
+            "C:\\Users\\trent\\Desktop\\Code\\Robot\\Swerve-Base-Cpp\\src\\main\\cpp\\"
           ],
           "includes": [
             "**/*.cpp",
@@ -186,7 +186,7 @@
       {
         "source": {
           "srcDirs": [
-            "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\include\\"
+            "C:\\Users\\trent\\Desktop\\Code\\Robot\\Swerve-Base-Cpp\\src\\main\\include\\"
           ],
           "includes": [],
           "excludes": []
@@ -251,7 +251,7 @@
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\d3b3db4768ab7e084aaf48eaf459a071\\transformed\\cscore-cpp-2023.4.3-headers\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\b7d147c4eaae16901bb4cf8c6a5a001c\\transformed\\apriltag-cpp-2023.4.3-headers\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\8ad7f433c3220a938f5e739b547fd881\\transformed\\opencv-cpp-4.6.0-4-headers\\",
-      "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\include\\",
+      "C:\\Users\\trent\\Desktop\\Code\\Robot\\Swerve-Base-Cpp\\src\\main\\include\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\30260e5da45014b29d8aecb925cbafff\\transformed\\wpilibNewCommands-cpp-2023.4.3-sources\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\f2638702db1a1cc4c1da64c7dd788db5\\transformed\\navx-frc-cpp-2023.0.4-sources\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\2a414afe795278e4dc9d0b6d234fb908\\transformed\\wpilibc-cpp-2023.4.3-sources\\",
@@ -299,7 +299,7 @@
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\d3b3db4768ab7e084aaf48eaf459a071\\transformed\\cscore-cpp-2023.4.3-headers\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\b7d147c4eaae16901bb4cf8c6a5a001c\\transformed\\apriltag-cpp-2023.4.3-headers\\",
       "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\8ad7f433c3220a938f5e739b547fd881\\transformed\\opencv-cpp-4.6.0-4-headers\\",
-      "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\include\\"
+      "C:\\Users\\trent\\Desktop\\Code\\Robot\\Swerve-Base-Cpp\\src\\main\\include\\"
     ],
     "binaries": [
       {
@@ -308,7 +308,7 @@
           {
             "source": {
               "srcDirs": [
-                "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\cpp\\"
+                "C:\\Users\\trent\\Desktop\\Code\\Robot\\Swerve-Base-Cpp\\src\\main\\cpp\\"
               ],
               "includes": [
                 "**/*.cpp",
@@ -318,7 +318,7 @@
             },
             "exportedHeaders": {
               "srcDirs": [
-                "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\include\\"
+                "C:\\Users\\trent\\Desktop\\Code\\Robot\\Swerve-Base-Cpp\\src\\main\\include\\"
               ],
               "includes": [],
               "excludes": []
@@ -361,7 +361,7 @@
           "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\d3b3db4768ab7e084aaf48eaf459a071\\transformed\\cscore-cpp-2023.4.3-headers\\",
           "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\b7d147c4eaae16901bb4cf8c6a5a001c\\transformed\\apriltag-cpp-2023.4.3-headers\\",
           "C:\\Users\\trent\\.gradle\\caches\\transforms-3\\8ad7f433c3220a938f5e739b547fd881\\transformed\\opencv-cpp-4.6.0-4-headers\\",
-          "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\include\\"
+          "C:\\Users\\trent\\Desktop\\Code\\Robot\\Swerve-Base-Cpp\\src\\main\\include\\"
         ],
         "sharedLibrary": false,
         "executable": true
@@ -371,7 +371,7 @@
       {
         "source": {
           "srcDirs": [
-            "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\cpp\\"
+            "C:\\Users\\trent\\Desktop\\Code\\Robot\\Swerve-Base-Cpp\\src\\main\\cpp\\"
           ],
           "includes": [
             "**/*.cpp",
@@ -402,7 +402,7 @@
       {
         "source": {
           "srcDirs": [
-            "C:\\Users\\trent\\OneDrive\\Documents\\GitHub\\Robot Code\\Cpp\\Swerve-Base-Cpp\\src\\main\\include\\"
+            "C:\\Users\\trent\\Desktop\\Code\\Robot\\Swerve-Base-Cpp\\src\\main\\include\\"
           ],
           "includes": [],
           "excludes": []
