@@ -23,6 +23,9 @@ private:
     // drive and turn rates with drive rates stored as complex numbers
     complex<float> currentDriveRate;
     complex<float> targetDriveRate;
+    // robot oriented drive rate
+    complex<float> robotDriveRate;
+    // turn rate
     float currentTurnRate = 0;
     float targetTurnRate;
 
@@ -81,14 +84,14 @@ public:
             currentTurnRate = targetTurnRate;
         }
 
-        // robot-orient the drive rate
-        currentDriveRate *= polar<float>(1, -currentAngle);
+        // store the robot oriented drive rate
+        robotDriveRate = currentDriveRate * polar<float>(1, -currentAngle);
         // stores the robot's change in position since last Set()
         complex<float> positionChange;
         // drive the modules and average the module position changes
         for (int i = 0; i < 4; i++)
         {
-            modules[i].Set(currentDriveRate, currentTurnRate);
+            modules[i].Set(robotDriveRate, currentTurnRate);
             positionChange += modules[i].getPositionChangeVector();
         }
         // field-orient the position change vector

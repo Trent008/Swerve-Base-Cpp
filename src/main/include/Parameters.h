@@ -16,7 +16,7 @@ struct Parameters
     float const driveMotorInPerRot = (M_PI * wheelDiameter / 6.75);
 
     // percent to change the robot velocity per teleop cycle
-    float const slewRate = 0.035;
+    float const slewRate = 0.04;
 
     // max drive rate for autonomous
     float const autoMaxDriveRate = 0.2;

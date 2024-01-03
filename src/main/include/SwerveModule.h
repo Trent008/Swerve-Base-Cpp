@@ -56,7 +56,7 @@ public:
     void Set(complex<float> driveRate, float angularRate)
     {
         // find the current wheel angle
-        float currentWheelAngle = wheelAngleEncoder->GetAbsolutePosition().GetValue().value();
+        float currentWheelAngle = wheelAngleEncoder->GetAbsolutePosition().GetValue().value()*M_PI*2;
         // find the module target velocity
         complex<float> moduleTargetVelocity = getModuleVector(driveRate, angularRate);
 
@@ -68,14 +68,14 @@ public:
             // find the drive motor velocity
             float driveMotorVelocity = abs(moduleTargetVelocity);
             // reverse the wheel direction if it is more efficient
-            if (abs(error) > 90)
+            if (abs(error) > M_PI/2)
             {
                 driveMotorVelocity = -driveMotorVelocity;
                 error = angleSum(error, M_PI);
             }
             driveMotor->SetVelocity(driveMotorVelocity);
             // set the turning motor to a speed proportional to its error
-            turningMotor->Set(error / M_PI);
+            turningMotor->Set(-error / M_PI);
         }
         else // if the target velocity is basically zero, do nothing
         {
